@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (C) 2021 The LineageOS Project
+    SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <!-- Alert slider -->
+    <string name="alert_slider_category_title">Слайдер звуковых режимов</string>
+    <string name="alert_slider_selection_dialog_title">Действие</string>
+    <string name="alert_slider_top_position">Верхняя позиция</string>
+    <string name="alert_slider_middle_position">Средняя позиция</string>
+    <string name="alert_slider_bottom_position">Нижния позиция</string>
+    <string name="alert_slider_mode_silent">Режим тишины</string>
+    <string name="alert_slider_mode_normal">Обычный</string>
+    <string name="alert_slider_mode_vibration">Vibration</string>
+    <string name="alert_slider_mode_dnd_priority_only">Только важные</string>
+    <string name="alert_slider_mode_dnd_total_silence">Полная тишина</string>
+    <string name="alert_slider_mode_dnd_alarms_only">Только будильник</string>
+    <string name="alert_slider_mute_media_title">Отключить звуки медиа</string>
+    <string name="alert_slider_mute_media_summary">Отключить звуки медия при переходе в режим тишины</string>
+    <string name="alert_slider_override_zen_mode_title">Отключить режим "Не беспокоить"</string>
+    <string name="alert_slider_override_zen_mode_summary">Отключить режим "Не беспокоить" при переключений слайдера звуковых режимов
+  </string>
+</resources>

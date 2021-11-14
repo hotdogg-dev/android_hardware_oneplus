@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (C) 2021 The LineageOS Project
+    SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <!-- Alert slider -->
+    <string name="alert_slider_category_title">Слайдер звуковых режимів</string>
+    <string name="alert_slider_selection_dialog_title">Дія</string>
+    <string name="alert_slider_top_position">Верхня позиція</string>
+    <string name="alert_slider_middle_position">Середня позиція</string>
+    <string name="alert_slider_bottom_position">Нижня позиція</string>
+    <string name="alert_slider_mode_silent">Режим тиші</string>
+    <string name="alert_slider_mode_normal">Звичайний</string>
+    <string name="alert_slider_mode_vibration">Вібрація</string>
+    <string name="alert_slider_mode_dnd_priority_only">Тільки важливі</string>
+    <string name="alert_slider_mode_dnd_total_silence">Повна тиша</string>
+    <string name="alert_slider_mode_dnd_alarms_only">Тільки будильник</string>
+    <string name="alert_slider_mute_media_title">Вимкнути звуки медіа</string>
+    <string name="alert_slider_mute_media_summary">Вимкнути звуки медіа під час переходу до режиму тиші</string>
+    <string name="alert_slider_override_zen_mode_title">Вимкнути режим "Не турбувати"</string>
+    <string name="alert_slider_override_zen_mode_summary">Вимкнути режим "Не турбувати" під час перемикання слайдера звуковых режимів
+  </string>
+</resources>
