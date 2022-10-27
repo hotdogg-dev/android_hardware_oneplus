@@ -102,6 +102,7 @@ class KeyHandler : Service() {
 
     private fun handleMode(position: Int) {
         val muteMedia = sharedPreferences.getBoolean(MUTE_MEDIA_WITH_SILENT, false)
+        val overrideZenMode = sharedPreferences.getBoolean(OVERRIDE_ZEN_MODE, true)
 
         val mode = when (position) {
             POSITION_TOP -> sharedPreferences.getString(ALERT_SLIDER_TOP_KEY, "0")!!.toInt()
@@ -113,7 +114,8 @@ class KeyHandler : Service() {
         executorService.submit {
             when (mode) {
                 AudioManager.RINGER_MODE_SILENT -> {
-                    setZenMode(Settings.Global.ZEN_MODE_OFF)
+                    if (overrideZenMode)
+                        setZenMode(Settings.Global.ZEN_MODE_OFF)
                     audioManager.ringerModeInternal = mode
                     if (muteMedia) {
                         audioManager.adjustVolume(AudioManager.ADJUST_MUTE, 0)
@@ -121,7 +123,8 @@ class KeyHandler : Service() {
                     }
                 }
                 AudioManager.RINGER_MODE_VIBRATE, AudioManager.RINGER_MODE_NORMAL -> {
-                    setZenMode(Settings.Global.ZEN_MODE_OFF)
+                    if (overrideZenMode)
+                        setZenMode(Settings.Global.ZEN_MODE_OFF)
                     audioManager.ringerModeInternal = mode
                     if (muteMedia && wasMuted) {
                         audioManager.adjustVolume(AudioManager.ADJUST_UNMUTE, 0)
@@ -129,7 +132,8 @@ class KeyHandler : Service() {
                 }
                 ZEN_PRIORITY_ONLY, ZEN_TOTAL_SILENCE, ZEN_ALARMS_ONLY -> {
                     audioManager.ringerModeInternal = AudioManager.RINGER_MODE_NORMAL
-                    setZenMode(mode - ZEN_OFFSET)
+                    if (overrideZenMode)
+                        setZenMode(mode - ZEN_OFFSET)
                     if (muteMedia && wasMuted) {
                         audioManager.adjustVolume(AudioManager.ADJUST_UNMUTE, 0)
                     }
@@ -162,6 +166,7 @@ class KeyHandler : Service() {
         private const val ALERT_SLIDER_MIDDLE_KEY = "config_middle_position"
         private const val ALERT_SLIDER_BOTTOM_KEY = "config_bottom_position"
         private const val MUTE_MEDIA_WITH_SILENT = "config_mute_media"
+        private const val OVERRIDE_ZEN_MODE = "config_override_zen_mode"
 
         // ZEN constants
         private const val ZEN_OFFSET = 2
